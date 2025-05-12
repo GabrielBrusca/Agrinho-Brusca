@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Festa de Peão Colorado</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&family=Roboto:wght@400&display=swap');
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #000000 0%, #0c1885 100%);
+    color: #FFF1DC;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  header {
+    background: rgba(0,0,0,0.3);
+    padding: 1rem;
+    text-align: center;
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.6rem;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 4px #3b1c00;
+  }
+  main {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  h1 {
+    font-family: 'Roboto Slab', serif;
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 6px #3b1c00;
+  }
+  h2 {
+    font-size: 1.2rem;
+    color: #fcd299;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+  }
+  p {
+    font-size: 1rem;
+    max-width: 320px;
+    line-height: 1.4;
+    color: #fff6e1;
+    text-shadow: 1px 1px 3px #4a1f00;
+  }
+  .button {
+    margin-top: 2rem;
+    background: #a42e07;
+    border: none;
+    padding: 0.8rem 2.2rem;
+    color: #fce7cf;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(164,46,7,0.7);
+    transition: background 0.3s ease;
+    user-select: none;
+  }
+  .button:hover,
+  .button:focus {
+    background: #e25822;
+    outline: none;
+  }
+  footer {
+    text-align: center;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #f7f0e4;
+    background: rgba(0,0,0,0.25);
+    box-shadow: inset 0 1px 4px rgba(255,255,255,0.1);
+  }
+  /* Small confetti pieces */
+  .confetti {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background-color: #fce7cf;
+    opacity: 0.8;
+    border-radius: 3px;
+    animation-timing-function: linear;
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  /* City and Campo section styles */
+  #celebration {
+    margin-top: 2rem;
+    max-width: 340px;
+    background: rgba(0,0,0,0.15);
+    padding: 1rem 1.2rem;
+    border-radius: 20px;
+    box-shadow: 0 0 15px 2px rgba(255, 160, 40, 0.8);
+    font-family: 'Roboto Slab', serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #ffdba1;
+    text-shadow: 1px 1px 3px #5b2a01;
+    line-height: 1.5;
+  }
+
+  /* Western style icon */
+  .icon-hat {
+    margin-bottom: 0.8rem;
+    font-size: 4rem;
+    color: #e9c08c;
+    text-shadow: 1px 1px 5px #5b2a01;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 400px) {
+    h1 {
+      font-size: 2.2rem;
+    }
+    h2 {
+      font-size: 1rem;
+    }
+    #celebration {
+      font-size: 1rem;
+      max-width: 280px;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  FESTA DE PEÃO COLORADO
+</header>
+
+<main>
+  <div class="icon-hat" aria-hidden="true">🤠</div>
+  <h1>Viva Nossa Cidade e Nosso Campo!</h1>
+  <h2>Um tributo animado aos peões e à tradição do Rodeio Colorado</h2>
+  <p>
+    Junte-se a nós para celebrar a cultura, a força do campo e a energia vibrante da nossa cidade no maior evento de festa de peão da região! Shows, montarias, comidas típicas e muita alegria te esperam.
+  </p>
+  <button class="button" onclick="alert('Vamos festejar juntos!')">Quero Participar!</button>
+
+  <section id="celebration" aria-label="Celebração da cidade e do campo">
+    <strong>Nosso orgulho:</strong><br />
+    <em>A força do campo que alimenta e sustenta nossa gente.</em><br />
+    <em>A alma vibrante e acolhedora da nossa cidade.</em><br />
+    <br />
+    <small>Festa de Peão Colorado - Tradição e emoção lado a lado.</small>
+  </section>
+</main>
+
+<footer>
+  &copy; 2024 Festa de Peão Colorado - Todos os direitos reservados
+</footer>
+
+<script>
+  // Confetti animation for festivity
+  (() => {
+    const colors = ['#fce7cf', '#fcd299', '#e25822', '#a42e07'];
+    const confettiCount = 30;
+    const confettis = [];
+
+    function randomRange(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    function createConfetti() {
+      const conf = document.createElement('div');
+      conf.classList.add('confetti');
+      conf.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      conf.style.left = randomRange(0, window.innerWidth) + 'px';
+      conf.style.top = randomRange(-20, -60) + 'px';
+      conf.style.width = randomRange(5, 9) + 'px';
+      conf.style.height = conf.style.width;
+      conf.style.opacity = Math.random() + 0.5;
+      conf.style.transform = `rotate(${Math.floor(Math.random() * 360)}deg)`;
+      document.body.appendChild(conf);
+
+      return {
+        element: conf,
+        x: parseFloat(conf.style.left),
+        y: parseFloat(conf.style.top),
+        size: parseFloat(conf.style.width),
+        speed: randomRange(1, 3),
+        angle: randomRange(0, 360),
+        rotationSpeed: randomRange(-10, 10),
+        opacity: parseFloat(conf.style.opacity),
+      };
+    }
+
+    function animateConfetti() {
+      confettis.forEach((conf, i) => {
+        conf.y += conf.speed;
+        conf.x += Math.sin(conf.angle * Math.PI / 180) * 0.7;
+        conf.angle += conf.rotationSpeed * 0.1;
+        if (conf.y > window.innerHeight) {
+          conf.y = randomRange(-60, -20);
+          conf.x = randomRange(0, window.innerWidth);
+        }
+        conf.element.style.top = conf.y + 'px';
+        conf.element.style.left = conf.x + 'px';
+        conf.element.style.transform = `rotate(${conf.angle}deg)`;
+        conf.element.style.opacity = conf.opacity;
+      });
+      requestAnimationFrame(animateConfetti);
+    }
+
+    for (let i = 0; i < confettiCount; i++) {
+      confettis.push(createConfetti());
+    }
+
+    animateConfetti();
+  })();
+</script>
+</body>
+</html>
+
+```
